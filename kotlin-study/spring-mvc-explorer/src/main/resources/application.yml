@@ -1,0 +1,28 @@
+hibernate:
+    show_sql: true
+server:
+    port: 8080
+spring:
+    autoconfigure:
+        exclude:
+            - org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.context.ContextCredentialsAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.context.ContextResourceLoaderAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.mail.MailSenderAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.cache.ElastiCacheAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.messaging.MessagingAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.jdbc.AmazonRdsDatabaseAutoConfiguration
+            - org.springframework.cloud.aws.autoconfigure.metrics.CloudWatchExportAutoConfiguration
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/personal?currentSchema=spring-mvc-explorer
+        username: personal
+        password: personal
+    jpa:
+        properties:
+            hibernate:
+                jdbc:
+                    lob:
+                        non_contextual_creation: true

@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-webflux-onion-project
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: 1
+
+  r2dbc:
+    name: spring-webflux-onion-project
+    url: r2dbc:pool:postgresql://localhost:5432/personal?schema=spring-webflux-onion-project
+    username: personal
+    password: personal
+    pool:
+      initial-size: 10
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1

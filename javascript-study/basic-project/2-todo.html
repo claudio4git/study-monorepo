@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To do</title>
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+        </ul>
+
+        <input type="text" placeholder="Type a text">
+        <button>Add</button>
+    </div>
+
+    <script>
+        var listElement = document.querySelector('#app ul');
+        var inputElement = document.querySelector('#app input');
+        var buttonElement = document.querySelector('#app button');
+
+        var todos = JSON.parse(localStorage.getItem('list_todo')) || [];
+
+        function showAll() {
+            listElement.innerHTML = '';
+
+            todos.forEach(element => {
+                var todoElement = document.createElement('li');
+                var todoText = document.createTextNode(element + " ");
+                
+                var linkElement = document.createElement('a');
+                linkElement.setAttribute('href', '#');
+
+                var pos = todos.indexOf(element);
+                linkElement.setAttribute('onclick', 'removeTodo(' + pos + ')');
+
+                var textLink = document.createTextNode('Remove');
+                linkElement.appendChild(textLink);
+
+                todoElement.appendChild(todoText);
+                todoElement.appendChild(linkElement);
+                listElement.appendChild(todoElement);
+            });
+        }
+
+        showAll();
+
+        function addTodo() {
+            var textTodo = inputElement.value;
+            todos.push(textTodo);
+            inputElement.value = '';
+            showAll();
+            saveToStorage();
+        }
+
+        buttonElement.onclick = addTodo;
+
+        function removeTodo(pos) {
+            todos.splice(pos, 1); // remove pos a 1 item
+            showAll();
+            saveToStorage();
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('list_todo', JSON.stringify(todos));
+        }
+    </script>
+</body>
+</html>

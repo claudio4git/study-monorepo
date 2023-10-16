@@ -1,0 +1,20 @@
+quarkus:
+  log:
+    level: INFO
+    category:
+      "br.com.jccf":
+        level: ERROR
+
+  http:
+    port: 8081
+
+  datasource:
+    url: jdbc:postgresql://localhost/personal?currentSchema=quarkus_hexagon_mult_projects
+    driver: org.postgresql.Driver
+    username: personal
+    password: personal
+
+  flyway:
+    migrate-at-start: true
+    schemas: quarkus_hexagon_mult_projects
+    baseline-on-migrate: true

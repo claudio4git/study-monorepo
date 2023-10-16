@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic</title>
+</head>
+<body>
+    Check it out on the console!
+    <br>
+    <button class="button">Add</button>
+    
+    <script>
+        // variables
+        var name = "Person";
+        var age = 25;
+        var weight = 82.5;
+
+        // vector
+        var persons = ['Person 1', 'Person 2', 'Person 3'];
+
+        // object
+        var person = {
+            name: 'Person',
+            age: 30,
+            weight: 90
+        }
+
+        // method
+        function sum(one, two) {
+            return one + two;
+        }
+
+        // action from some object
+        // document.getElementById('name')
+        // document.getElementsByTagName('input')[0]
+        // document.getElementsByClassName('class')[0]
+        var bntAdd = document.querySelector('button.button'); // body div#app input.id input[name=name]
+
+        bntAdd.onclick = function() {
+            alert('click');
+        }
+
+        // compare just values
+        if (1 == 2) {
+            console.log("numbers are equals");
+        }
+
+        // compare value and type
+        if (1 === "1") {
+            console.log("numbers are not equals");
+        }
+
+        // ternary
+        var result = (1 == 2) ? "one" : "two"
+        var resultBol = (1 == 2)
+        console.log(result, resultBol)
+
+        // for, foreach, forin and forof
+        for (let i = 0; i < 10; i++) {
+            console.log(i)
+        }
+
+        persons.forEach(element => {
+            console.log(element)
+        });
+
+        // while
+        while (1 == 2) {
+            console.log("one is equal two")
+        }
+    </script>
+</body>
+</html>

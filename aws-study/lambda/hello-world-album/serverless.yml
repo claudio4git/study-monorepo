@@ -1,0 +1,14 @@
+service: hello-world-lambda
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  helloWorld:
+    handler: handler.helloWorld
+    events:
+      - http:
+          path: hello-world
+          method: get
+          cors: true

@@ -1,0 +1,4 @@
+device-manager-api:
+  image: jclaudiocf/device-manager-api
+  ports:
+    - 8000:8000

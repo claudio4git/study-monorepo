@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax</title>
+</head>
+<body>
+    Check it out on the console!
+    
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'https://api.github.com/users/jclaudiocf');
+        xhr.send(null);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+
+compile:
+	./gradlew clean build

@@ -1,0 +1,20 @@
+{
+  "name": "foundation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open --env CYPRESS_ENV_VARIABLE_CYPRESS_OPEN_COMMAND='hello open command'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "2.1.2",
+    "@types/node": "8.10.56",
+    "cypress": "10.4.0",
+    "prettier": "2.7.1",
+    "typescript": "3.7.3",
+    "webpack": "4.41.4"
+  }
+}

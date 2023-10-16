@@ -1,0 +1,6 @@
+.idea/
+data/output/
+data/modifyOutput/
+data/sampleOutput/
+*.iml
+target/
