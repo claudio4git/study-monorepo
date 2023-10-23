@@ -1,18 +1,19 @@
 package algorithm;
 
 public class ReverseString {
+
     public static void main(String[] args) {
-        System.out.println("V1: " + getReverseV1("Maria"));
-        System.out.println("V2: " + getReverseV2("Maria"));
-        System.out.println("V3: " + getReverseV3("Maria goes to supermarket"));
-        System.out.println("V4: " + getReverseV4("Maria"));
+        System.out.println("V1: " + doByStringBuffer("Maria"));
+        System.out.println("V2: " + doByRecursion("Maria"));
+        System.out.println("V3: " + doFromPhraseByRecursion("Maria goes to supermarket"));
+        System.out.println("V4: " + doByFor("Maria"));
     }
 
     /*
      *  StringBuffer = synchronized
      *  StringBuilder no
      */
-    public static String getReverseV1(String value) {
+    public static String doByStringBuffer(String value) {
         return new StringBuffer(value).reverse().toString();
     }
 
@@ -27,17 +28,17 @@ public class ReverseString {
      *  5: empty + a (last and first result)
      *  Output: airaM
      */
-    public static String getReverseV2(String value) {
+    public static String doByRecursion(String value) {
         if (value.isEmpty()) {
             return value;
         }
-        return getReverseV2(value.substring(1)) + value.charAt(0);
+        return doByRecursion(value.substring(1)) + value.charAt(0);
     }
 
     /*
      *  Recursion with phrases.
      */
-    public static String getReverseV3(String value) {
+    public static String doFromPhraseByRecursion(String value) {
         if (value.isEmpty()) {
             return value;
         }
@@ -51,13 +52,13 @@ public class ReverseString {
             remainingValue = "";
         }
 
-        return getReverseV3(remainingValue) + firstWord + " ";
+        return doFromPhraseByRecursion(remainingValue) + firstWord + " ";
     }
 
     /*
      * Recursion using loop.
      */
-    public static String getReverseV4(String value) {
+    public static String doByFor(String value) {
         StringBuilder result = new StringBuilder();
 
         for (int i = value.length() - 1; i >= 0; i--) {

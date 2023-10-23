@@ -16,41 +16,42 @@ import java.util.*;
  */
 public class LongestSubstringWithoutRepeatingChars {
     public static void main(String[] args) {
-        System.out.println(getLongestSubstringV1("abcabcbb"));
-        System.out.println(getLongestSubstringV2("pwwkew"));
+        System.out.println(doByKeyValue("abcabcbb"));
+        System.out.println(doByPointer("pwwkew"));
     }
 
-    public static int getLongestSubstringV1(String value) {
+    public static int doByKeyValue(String value) {
         int maxLength = 0;
-        int aPointer = 0;
+        int leftPointer = 0;
         HashMap<Character, Integer> chars = new HashMap<>();
 
-        for (int bPointer = 0; bPointer < value.length(); bPointer++) {
-            char currentChar = value.charAt(bPointer);
+        for (int rightPointer = 0; rightPointer < value.length(); rightPointer++) {
+            char currentChar = value.charAt(rightPointer);
             if (chars.containsKey(currentChar)) {
-                aPointer = Math.max(aPointer, chars.get(currentChar) + 1);
+                leftPointer = Math.max(leftPointer, chars.get(currentChar) + 1);
             }
-            chars.put(currentChar, bPointer);
-            maxLength = Math.max(maxLength, bPointer - aPointer + 1);
+            chars.put(currentChar, rightPointer);
+            int total = rightPointer - leftPointer + 1;
+            maxLength = Math.max(maxLength, total);
         }
 
         return maxLength;
     }
 
-    public static int getLongestSubstringV2(String value) {
-        int aPointer = 0;
-        int bPointer = 0;
+    public static int doByPointer(String value) {
+        int leftPointer = 0;
+        int rightPointer = 0;
         int maxLength = 0;
         HashSet<Character> chars = new HashSet<>();
 
-        while (bPointer < value.length()) {
-            if (!chars.contains(value.charAt(bPointer))) {
-                chars.add(value.charAt(bPointer));
-                bPointer++;
+        while (rightPointer < value.length()) {
+            if (!chars.contains(value.charAt(rightPointer))) {
+                chars.add(value.charAt(rightPointer));
+                rightPointer++;
                 maxLength = Math.max(chars.size(), maxLength);
             } else {
-                chars.remove(value.charAt(aPointer));
-                aPointer++;
+                chars.remove(value.charAt(leftPointer));
+                leftPointer++;
             }
         }
 
