@@ -1,20 +1,24 @@
 package algorithm
 
+/*
+ * A prime number is a whole number greater than 1 whose only factors are 1 and itself.
+ * The only even prime number is 2.
+ *
+ * Factors are 1 and itself.
+ */
 fun main() {
     val primeNumber = PrimeNumber()
-    println("17 is prime: ${primeNumber.isPrimeV1(17)}")
-    println("17 is prime: ${primeNumber.isPrimeV2(17)}")
+    println("Is 23 prime number: ${primeNumber.isPrimeV1(23)}")
+    println("Is 17 prime number: ${primeNumber.isPrimeV2(17)}")
 }
 
 class PrimeNumber {
 
     fun isPrimeV1(number: Int): Boolean {
-        var i = 2
-        while (i < number) {
+        for (i in 2 until number) {
             if (number % i == 0) {
                 return false
             }
-            i++
         }
         return true
     }

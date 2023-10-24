@@ -9,8 +9,8 @@ public class PrimeNumber {
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
-        System.out.println("Is " + 17 + " prime number: " + primeNumber.isPrimeV1(17));
-        System.out.println("Is " + 17 + " prime number: " + primeNumber.isPrimeV2(17));
+        System.out.println("Is 23 prime number: " + primeNumber.isPrimeV1(23));
+        System.out.println("Is 17 prime number: " + primeNumber.isPrimeV2(17));
     }
 
     public boolean isPrimeV1(long number) {
@@ -25,7 +25,7 @@ public class PrimeNumber {
     public boolean isPrimeV2(long number) {
         if (number % 2 == 0) return false; // if n is a multiple of 2 is false
 
-        for (int i = 3; i * i <= number; i += 2) {
+        for (int i = 3; (long) i * i <= number; i += 2) {
             if (number % i == 0) {
                 return false;
             }
