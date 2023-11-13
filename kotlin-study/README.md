@@ -2,6 +2,14 @@
 
 This repo has projects for studing the Kotlin language and technologies around it.
 
+## Kotlin command-line compiler
+
+```
+$ sdk install kotlin
+$ kotlinc <file.kt> -include-runtime -d file.jar
+$ java -jar <file.jar>
+```
+
 ## Project name structure
 
 Name format: `framework` `architecture` `database` `name`
