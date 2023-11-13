@@ -22,7 +22,8 @@ fun main() {
 
   println("Students by name: ${students.joinToString()}")
 
-  students.forEachIndexed { index, value -> value.rank = index + 1 }
+  //for ( (index, item) in students.withIndex()) { item.rank = index + 1 }
+  students.forEachIndexed { index, item -> item.rank = index + 1 }
   students.sortBy { it.rank }
 
   println("Students by rank: ${students.joinToString()}")
