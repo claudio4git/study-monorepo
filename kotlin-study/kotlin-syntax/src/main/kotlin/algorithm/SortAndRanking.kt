@@ -21,12 +21,19 @@ fun main() {
   students.sortBy { it.name }
 
   println("Students by name: ${students.joinToString()}")
+
+  students.forEachIndexed { index, value -> value.rank = index + 1 }
+  students.sortBy { it.rank }
+
+  println("Students by rank: ${students.joinToString()}")
+
 }
 
 data class Student(
   val name: String,
   val score: Int,
+  var rank: Int? = 0,
 ) : Comparable<Student> {
   override fun compareTo(other: Student) : Int = this.score.compareTo(other.score)
-  override fun toString() : String = "$name, $score"
+  override fun toString() : String = "name: $name, score: $score, rank: $rank"
 }
