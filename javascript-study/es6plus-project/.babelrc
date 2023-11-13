@@ -1,4 +1,0 @@
-{
-    "presets": ["@babel/preset-env"], // environment to web, mobile etc
-    "plugins": ["@babel/plugin-proposal-object-rest-spread"]
-}

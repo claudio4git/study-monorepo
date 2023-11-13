@@ -10,9 +10,9 @@
 
 # Technologies
 
-- React
-- Yarn
-- Babel
+- HTML
+- [Yarn](https://yarnpkg.com/)
+- [Babel](https://babeljs.io/)
 
 # Environment
 1 - Install node and yarn.

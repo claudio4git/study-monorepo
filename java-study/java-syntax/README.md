@@ -78,3 +78,10 @@ TreeMap (Map)
 - Uses RedBlack tree
 - Doesn't allow null key
 - Comparator order or natural order
+
+## Java compile and run
+
+```
+$ javac File.java
+$ java File
+```
