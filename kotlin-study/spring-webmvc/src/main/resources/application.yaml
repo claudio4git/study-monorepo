@@ -1,0 +1,19 @@
+server:
+  port: 9898
+
+spring:
+  datasource:
+    # url: jdbc:h2:mem:jccf # memory
+    url: jdbc:h2:file:./data/jccf # file store
+    username: sa # optional
+    # password: password # optional
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always # Spring execute the data.sql
+  flyway:
+    user: sa
+    url: jdbc:h2:file:./data/jccf
+    locations: classpath:db/migrations

@@ -40,4 +40,4 @@ build/
 ### Others ###
 /out/
 
-.class
+*.class
