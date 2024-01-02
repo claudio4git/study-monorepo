@@ -6,7 +6,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] values = {7, 6, 1, 8, 2, 9, 5, 4};
         System.out.println(Arrays.toString(values));
-        quickSort(values, 0, values.length -1);
+        new QuickSort().sort(values, 0, values.length -1);
         System.out.println(Arrays.toString(values));
     }
 
@@ -17,11 +17,11 @@ public class QuickSort {
 
         Finally, call recursively quickSort with two sides.
      */
-    private static void quickSort(int[] values, int begin, int end) {
+    private void sort(int[] values, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(values, begin, end);
-            quickSort(values, begin, partitionIndex - 1);
-            quickSort(values, partitionIndex + 1, end);
+            sort(values, begin, partitionIndex - 1);
+            sort(values, partitionIndex + 1, end);
         }
     }
 
@@ -30,7 +30,7 @@ public class QuickSort {
         Choosing the "right" pivot make this code faster.
         You can use: first, average, last or random value for pivot.
      */
-    private static int partition(int[] values, int begin, int end) {
+    private int partition(int[] values, int begin, int end) {
         int pivot = values[end]; // pivot value
 
         swap(values, begin, end); // when using last or random value of pivot
@@ -44,14 +44,14 @@ public class QuickSort {
             }
         }
 
-        swap(values, begin, i);
+        swap(values, begin, i); // move pivot to meddle
 
         return i;
     }
 
-    private static void swap(int[] values, int from, int to) {
-        int tmp = values[from];
+    private void swap(int[] values, int from, int to) {
+        int tmpFrom = values[from];
         values[from] = values[to];
-        values[to] = tmp;
+        values[to] = tmpFrom;
     }
 }
