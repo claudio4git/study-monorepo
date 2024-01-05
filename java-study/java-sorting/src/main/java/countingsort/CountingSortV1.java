@@ -1,25 +1,28 @@
-package quicksort;
+package countingsort;
 
 import java.util.*;
 
-public class BucketSort {
+/*
+ * V1 using 1 bucket and 2 loops.
+ */
+public class CountingSortV1 {
     public static void main(String[] args) {
         int[] values = {7, 6, 1, 8, 2, 9, 5, 4};
-        int[] result = bucketSort(values);
+        int[] result = countingSort(values, 9);
         System.out.println(Arrays.toString(values));
         System.out.println(Arrays.toString(result));
     }
 
-    public static int[] bucketSort(int[] values) {
+    public static int[] countingSort(int[] values, int max) {
         int l = 0;
-        int[] result = new int[8];
-        int[] bucketValues = bucket(values, 9);
+        int[] result = new int[values.length];
+        int[] bucketValues = bucket(values, max);
 
+        // This for show when the sortResult is 1 or N increased here result[i]++
+        // The index from bucketValues is the value sorted to show
         for (int i = 0; i < bucketValues.length; i++) {
-            // This for show when the sortResult is 1 or N increased here result[i]++
             for (int j = 0; j < bucketValues[i]; j++) {
-                result[l] = i;
-                l++;
+                result[l++] = i;
             }
         }
 
@@ -28,18 +31,16 @@ public class BucketSort {
 
     /*
      * Result are:
+     *  Key=N times found
      *  [0]=0
      *  [1]=0
      *  [2]=1
      *  [3]=1
-     *  [4]=0
-     *  [5]=1
-     *  [6]=1
      */
-    public static int[] bucket(int[] list, int max) {
+    public static int[] bucket(int[] values, int max) {
         int[] result = new int[max + 1];
 
-        for (int i: list) {
+        for (int i: values) {
             result[i]++;
         }
 
