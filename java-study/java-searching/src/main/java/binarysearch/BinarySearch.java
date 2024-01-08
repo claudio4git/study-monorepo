@@ -1,15 +1,12 @@
-package linearsearch;
+package binarysearch;
 
 public class BinarySearch {
 
     public static void main(String[] args) {
         int[] values = {1, 2, 4, 5, 6, 7, 9};
 
-        var result1 = new BinarySearch().search(values, 2);
-        System.out.printf("2 found: %s%n", result1 != -1);
-
-        var result2 = new BinarySearch().search(values, 4);
-        System.out.printf("4 found: %s%n", result2 != -1);
+        var result = new BinarySearch().search(values, 2);
+        System.out.printf("2 found: %s%n", result != -1);
     }
 
     public int search(int[] values, int target) {
