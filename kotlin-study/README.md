@@ -4,7 +4,7 @@ This repo has projects for studing the Kotlin language and technologies around i
 
 ## Kotlin command-line compiler
 
-```
+```shell
 $ sdk install kotlin
 $ kotlinc <file.kt> -include-runtime -d file.jar
 $ java -jar <file.jar>
@@ -19,3 +19,10 @@ e.g. spring-mvc-mysql-crud
 ## Project manager
 
 All projects are using Gradle.
+
+## Kotlin script
+
+```shell
+sdk install kscript
+kscript file.kts
+```
