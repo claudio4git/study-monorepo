@@ -10,6 +10,11 @@ import java.util.*;
  *
  * Best space O(log n)
  * Worse space O(n)
+ *
+ * Unstable: Não mantêm a ordem relativa dos elementos iguais.
+ * Divide and conquer.
+ *
+ * Divide, conquer and combine.
  */
 public class BasicPivotQuickSort {
     public static void main(String[] args) {
@@ -21,11 +26,8 @@ public class BasicPivotQuickSort {
     }
 
     /*
-     * Partition method split in two sides of values.
-     * One side with values smaller than the pivot and
-     * Another side with values greater than the pivot.
-     *
-     * Finally, call recursively quickSort with two sides.
+     * Get the pivot and divide the array in two subarray.
+     * Do it recursively until each element be sorted.
      */
     private static void quickSort(int[] values, int begin, int end) {
         if (begin < end) {
@@ -37,9 +39,8 @@ public class BasicPivotQuickSort {
     }
 
     /*
-     * Pivot is the key of performance of this pattern.
-     * Choosing the "right" pivot make this code faster.
-     * Choosing the "random" pivot minimize the possibility of worse space.
+     * Pivot is the last element of the array.
+     * Sort the original array putting the small number into left and big into right of pivot.
      *
      * You can use: first, average, last or random value for pivot.
      */
@@ -50,11 +51,11 @@ public class BasicPivotQuickSort {
         for (int j = begin; j < end; j++) {
             if (values[j] < pivot) {
                 i++;
-                swap(values, i, j);
+                swap(values, i, j); // smaller
             }
         }
 
-        swap(values, end, i + 1);
+        swap(values, end, i + 1); // bigger
 
         return i + 1;
     }
