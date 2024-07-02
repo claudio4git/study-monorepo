@@ -12,23 +12,23 @@ public class LongestPalindromeV2 {
             return "";
         }
 
-        String longestPalindrome = "";
-        int maxLengthPalindrome = 0;
+        String longest = "";
+        int max = 0;
         for (int i = 0; i < txt.length(); i++) {
             String palindromeEven = expandAroundCenter(txt, i, i); // even (par) for center unique
-            if (palindromeEven.length() > maxLengthPalindrome) {
-                maxLengthPalindrome = palindromeEven.length();
-                longestPalindrome = palindromeEven;
+            if (palindromeEven.length() > max) {
+                max = palindromeEven.length();
+                longest = palindromeEven;
             }
 
             String palindromeOdd = expandAroundCenter(txt, i, i + 1); // odd (impar) for center double
-            if (palindromeOdd.length() > maxLengthPalindrome) {
-                maxLengthPalindrome = palindromeOdd.length();
-                longestPalindrome = palindromeOdd;
+            if (palindromeOdd.length() > max) {
+                max = palindromeOdd.length();
+                longest = palindromeOdd;
             }
         }
 
-        return longestPalindrome;
+        return longest;
     }
 
     private static String expandAroundCenter(String txt, int left, int right) {
